@@ -1,8 +1,7 @@
 import openai
 import os
 
-# Set up OpenAI API key
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+# API key will be set from config.py
 
 def get_ai_response(prompt, language):
     system_message = {
@@ -41,4 +40,6 @@ def main():
         print(f"\nAI Assistant: {response}\n")
 
 if __name__ == "__main__":
+    from config import OPENAI_API_KEY
+    openai.api_key = OPENAI_API_KEY
     main()
